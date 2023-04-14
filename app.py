@@ -1,17 +1,17 @@
 import os
-
 from dotenv import load_dotenv
 from flask import Flask
+from flask_migrate import Migrate
 
-from vt.baglanti import vt, migrate
+from db import db
 
 load_dotenv()
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_URL")
 
-vt.init_app(app)
-migrate.init_app(app, vt)
+db.init_app(app)
+Migrate(app, db)
 
 
 @app.route('/')
