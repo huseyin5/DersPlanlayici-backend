@@ -9,9 +9,9 @@ def genel_api_olustur(isim, db_sinifi, sema_sinifi):
 
     @bp.route("/", methods=["GET"])
     def tumu():
-        kayitlar = filtrele(db_sinifi)
+        kayitlar = filtrele(db_sinifi).all()
         sema = sema_sinifi()
-        return sema.dump(kayitlar)
+        return sema.dump(kayitlar, many=True)
 
     @bp.route("/<int:id>", methods=["GET"])
     def detay(id):
