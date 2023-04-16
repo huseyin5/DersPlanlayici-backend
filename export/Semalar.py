@@ -1,4 +1,4 @@
-from db import Egitmen, Sinif
+from db import Egitmen, Sinif, Ders
 from .ma import ma
 
 
@@ -15,6 +15,5 @@ class SinifSema(ma.SQLAlchemyAutoSchema):
 
 
 class DersSema(ma.SQLAlchemyAutoSchema):
-    # AutoSchema foreignKey'leri görmezden geliyor bunun için include_fk kullanırız
     class Meta:
-        model = Sinif
+        model = Ders
