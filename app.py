@@ -4,6 +4,7 @@ from flask import Flask
 from flask_migrate import Migrate
 
 from db import db
+from export import ma
 
 load_dotenv()
 
@@ -11,6 +12,7 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_URL")
 
 db.init_app(app)
+ma.init_app(app)
 Migrate(app, db)
 
 
