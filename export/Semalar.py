@@ -1,12 +1,12 @@
-from db import Ogretmen, Sinif
+from db import Egitmen, Sinif
 from .ma import ma
 
 
 # Kayıt Ekleme ve Listeleme Şemaları
 
-class OgretmenSema(ma.SQLAlchemyAutoSchema):
+class EgitmenSema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = Ogretmen
+        model = Egitmen
 
 
 class SinifSema(ma.SQLAlchemyAutoSchema):
@@ -18,4 +18,3 @@ class DersSema(ma.SQLAlchemyAutoSchema):
     # AutoSchema foreignKey'leri görmezden geliyor bunun için include_fk kullanırız
     class Meta:
         model = Sinif
-        include_fk = True
